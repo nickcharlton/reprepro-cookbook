@@ -7,6 +7,8 @@
 # MIT Licensed.
 #
 
+include_recipe 'nginx'
+
 # install the reprepro dependencies
 %w{apt-utils dpkg-dev reprepro debian-keyring devscripts dput}.each do |pkg|
   package pkg
@@ -60,4 +62,13 @@ node['reprepro']['distributions'].keys.each do |dist|
 end
 
 # configure nginx to host it
+template '/etc/nginx/sites-available/apt' do
+  source 'apt.erb'
+  mode '0644'
+  variables(
+    :repo_dir => node['reprepro']['packages_path']
+  )
+end
+
+nginx_site 'apt'
 

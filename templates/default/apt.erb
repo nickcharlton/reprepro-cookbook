@@ -1,0 +1,19 @@
+server {
+    listen <%= node[:reprepro][:listen_port] %>;
+    server_name <%= node[:reprepro][:fqdn] %>;
+
+    access_log /var/log/nginx/apt-access.log;
+    error_log /var/log/nginx/apt-error.log;
+
+    location / {
+        root <%= @repo_dir %>;
+    }
+
+    location ~ /(.*)/conf {
+        deny all;
+    }
+
+    location ~ /(.*)/db {
+        deny all;
+    }
+}
