@@ -14,12 +14,8 @@ Vagrant.configure('2') do |config|
 
   # provision using Chef Solo
   config.vm.provision :chef_solo do |chef|
-    chef.json = {
-      
-    }
-
     chef.run_list = [
-        'recipe[reprepro::default]'
+        'recipe[reprepro]'
     ]
   end
 end
