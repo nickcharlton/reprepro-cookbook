@@ -13,5 +13,6 @@ Gemfile.lock
 bin/*
 .bundle/*
 
-# gpg
+# keys and test data
 *.gpg
+*.deb
