@@ -16,6 +16,30 @@ Tested on:
 
 ## Usage
 
+Add the default cookbook to your run list, and after the next Chef run, you'll be
+able to add packages to the repository like so:
+
+```bash
+sudo su packages
+cd /var/packages/{distro}
+reprepro includedeb {distro} {deb_file}
+```
+
+Using the default settings, the following can be added to `/etc/apt/sources.list`:
+
+```
+deb http://apt.example.com/debian/ wheezy non-free
+```
+
+The public key is published in the repository root, so this will import the key:
+
+```
+curl http://apt.example.com/pubkey.gpg | apt-key add -
+```
+
+Then, an `apt-get update` and `apt-get install {package_name}` will allow you to
+install your self-hosted package.
+
 ## Attributes
 
 * `reprepro['packages_path']`: where to place the packages. (default: `/var/packages`)
@@ -23,10 +47,8 @@ Tested on:
 (default: `{'ubuntu' => ['precise'], 'debian' => ['wheezy']}`)
 * `reprepro['fqdn']`: the domain name to configure the packages nginx configuration 
 with. (default: `apt.example.com`)
-* `reprepro['description']`: the repository description field. (default: `Custom APT
-repository`)
-
-## Recipes
+* `reprepro['description']`: the repository description field. (default:
+`Custom APT repository`)
 
 ## Author
 
