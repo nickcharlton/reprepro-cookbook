@@ -12,6 +12,7 @@ default['reprepro']['distributions'] = {'ubuntu' => ['precise'],
                                         'debian' => ['wheezy']}
 
 default['reprepro']['fqdn'] = 'apt.example.com'
+default['reprepro']['listen_port'] = 80
 default['reprepro']['description'] = 'Custom APT Repository'
 
 

@@ -47,6 +47,7 @@ install your self-hosted package.
 (default: `{'ubuntu' => ['precise'], 'debian' => ['wheezy']}`)
 * `reprepro['fqdn']`: the domain name to configure the packages nginx configuration 
 with. (default: `apt.example.com`)
+* `reprepro['listen_port']`: the port to set the virtual host to list on (default: 80)
 * `reprepro['description']`: the repository description field. (default:
 `Custom APT repository`)
 
