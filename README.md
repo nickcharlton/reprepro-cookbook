@@ -18,6 +18,14 @@ Tested on:
 
 ## Attributes
 
+* `reprepro['packages_path']`: where to place the packages. (default: `/var/packages`)
+* `reprepro['distributions']`: a hash of distributions and versions to support. 
+(default: `{'ubuntu' => ['precise'], 'debian' => ['wheezy']}`)
+* `reprepro['fqdn']`: the domain name to configure the packages nginx configuration 
+with. (default: `apt.example.com`)
+* `reprepro['description']`: the repository description field. (default: `Custom APT
+repository`)
+
 ## Recipes
 
 ## Author
