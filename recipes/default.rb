@@ -13,6 +13,14 @@
 end
 
 # create a user to hold the packages and key
+user 'packages' do
+  home '/home/packages'
+  shell '/bin/bash'
+  comment 'User for Managing the APT repository'
+  system true
+  supports :manage_home => true
+  action :create
+end
 
 # build the reprepro directory structure
 
