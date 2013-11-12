@@ -10,5 +10,6 @@ version          '0.1.0'
 supports 'debian'
 supports 'ubuntu'
 
+depends 'chef-vault'
 depends 'nginx'
 
